@@ -1,0 +1,161 @@
+{
+  "anvandare": [
+    {
+      "namn": "Youssef Moti",
+      "anvandar-name": "youssef-moti",
+      "e-post": "youssefmoti@yahoo.com",
+      "adress": {
+        "gata": "Sofielundsvägen 1",
+        "stad": "Bålsta",
+        "post-nummer": "74633"
+      },
+      "telefon": "0762664227"
+    }
+  ],
+  "erbjudanden": [
+    {
+      "namn": "Youssef",
+      "epost": "youssef@yahoo.com",
+      "fran": "Stockholm",
+      "till": "Enköping",
+      "datum": "2018-09-26T22:00:00.000Z",
+      "avstand": 49,
+      "bostadenYta": 50,
+      "kallare": 26,
+      "piano": true,
+      "packhjalp": false,
+      "meddelande": "Test",
+      "bilar": 4,
+      "pris": 13612.5,
+      "id": 1
+    },
+    {
+      "namn": "Peter Persson",
+      "epost": "peter@persson.se",
+      "fran": "Vägen 3, Stockholm",
+      "till": "Gatan 8, Stockholm",
+      "datum": "2018-09-26T22:00:00.000Z",
+      "avstand": 5,
+      "bostadenYta": 73,
+      "kallare": 9,
+      "piano": true,
+      "packhjalp": false,
+      "meddelande": null,
+      "bilar": 3,
+      "pris": 11687.5,
+      "id": 2
+    },
+    {
+      "namn": "Youssef",
+      "epost": "youssef@yahoo.com",
+      "fran": "Stockholm",
+      "till": "Enköping",
+      "datum": "2018-10-09T22:00:00.000Z",
+      "avstand": 54,
+      "bostadenYta": 73,
+      "kallare": 41,
+      "piano": true,
+      "packhjalp": null,
+      "meddelande": null,
+      "bilar": 4,
+      "pris": 18540,
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 5
+    },
+    {
+      "namn": "Test",
+      "epost": "youssef@yahoo.com",
+      "fran": "Stockholm",
+      "till": "Enköping",
+      "datum": "2018-09-26T22:00:00.000Z",
+      "avstand": 48,
+      "bostadenYta": 70,
+      "kallare": null,
+      "piano": null,
+      "packhjalp": null,
+      "meddelande": null,
+      "bilar": 2,
+      "pris": 4600,
+      "id": 6
+    }
+  ],
+  "avstand": [
+    {
+      "id": 1,
+      "avstand": 10,
+      "pris": 1100
+    },
+    {
+      "id": 2,
+      "avstand": 49,
+      "pris": 1490
+    },
+    {
+      "id": 3,
+      "avstand": 50,
+      "pris": 5400
+    },
+    {
+      "id": 4,
+      "avstand": 51,
+      "pris": 5408
+    },
+    {
+      "id": 5,
+      "avstand": 99,
+      "pris": 5792
+    },
+    {
+      "id": 6,
+      "avstand": 100,
+      "pris": 10700
+    }
+  ],
+  "volym": [
+    {
+      "id": 1,
+      "boarea": 49,
+      "vindsyta": 0,
+      "antal_bilar": 1,
+      "avstand": 1100,
+      "pris": 1100
+    },
+    {
+      "id": 2,
+      "boarea": 10,
+      "vindsyta": 25,
+      "antal_bilar": 2,
+      "avstand": 1100,
+      "pris": 2200
+    },
+    {
+      "id": 3,
+      "boarea": 50,
+      "vindsyta": 0,
+      "antal_bilar": 2,
+      "avstand": 1100,
+      "pris": 2200
+    },
+    {
+      "id": 4,
+      "boarea": 100,
+      "vindsyta": 0,
+      "antal_bilar": 3,
+      "avstand": 1100,
+      "pris": 3300
+    },
+    {
+      "id": 5,
+      "boarea": 150,
+      "vindsyta": 0,
+      "antal_bilar": 4,
+      "avstand": 1100,
+      "pris": 4400
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+.block__element {
+    display: block;
+}
+
+.mit__container {
+    display: grid;
+    justify-items: stretch;
+    grid-gap: 5px 30px;
+}
+
+mat-icon.ico-sm {
+    color: rgba(0, 0, 0, 0.54);
+    font-size: 1.3em !important;
+}
+
+mat-icon.bilar--mr-s {
+    margin-right: 5px;
+}
+
+.mat-figure {
+    align-items: start !important;
+}

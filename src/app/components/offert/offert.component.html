@@ -1,0 +1,53 @@
+<mat-card class="mr-1">
+    <mat-grid-list cols="12" rowHeight="110px">
+        <mat-grid-tile [colspan]="breakpoint1" [rowspan]="4" (window:resize)="onResize($event)">
+            <div *ngIf="offert; else runSpinner" class="mit__container" [ngStyle]="{'grid-template-columns': breakpoint1 == 8 ? '1fr 1fr' : '1fr'}">
+                <h1 class="mat-h1">Prisföslog för bohogsflytt</h1>
+                <p>Offertnummer: {{offert.id}}</p>
+                <p>Namn: {{offert.namn}}</p>
+                <p>Från: {{offert.fran}}</p>
+                <p>Till: {{offert.till}}</p>
+                <p>Datum: {{offert.datum | date:'yyyy/MM/dd'}}</p>
+                <p>Avstånd: {{offert.avstand}} kvm</p>
+                <p>Bostadens yta: {{offert.bostadenYta}} kvm</p>
+                <p>Vind/källare:{{offert.kallare}} kvm</p>
+                <hr>
+                <h3>Övrigt</h3>
+                <p>Piano: {{offert.piano? 'Ja': 'Nej'}}</p>
+                <p>Packhjälp: {{offert.packhjalp? 'Ja': 'Nej'}}</p>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="breakpoint2" [rowspan]="4" (window:resize)="onResize($event)">
+            <div *ngIf="offert; else runSpinner">
+                <h2 class="mat-h2">Uppskata pris</h2>
+                <h3 class="mat-h3">
+                    {{offert.pris | currency: 'SEK':'kr '}} inkl moms
+                </h3>
+                <p class="mat-caption">{{offert.pris - (offert.pris * 0.20) | currency: 'SEK':'kr '}} exkl moms</p>
+
+                <div class="bilar">
+                    <h3 class="mat-h3">Antal bilar: {{offert.bilar}}</h3>
+                    <div class="bilar__boarea">
+                        <mat-icon *ngFor="let bil of bilar(offert.bostadenYta, 49)">local_shipping</mat-icon>
+                    </div>
+                    <div class="bilar__kallare">
+                        <mat-icon *ngFor="let bil of bilar(offert.kallare, 25)">local_shipping</mat-icon>
+                    </div>
+                </div>
+
+                <div class="contact__oss">
+                    <p>Vi sparar ditt prisförslag 90 dagar.</p>
+                    <p>För att se prisförslaget igen, besök: <a [attr.href]="'http://localhost:4200/offert/' + offert.id">http://localhost:4200/offert/{{offert.id}}</a></p>
+                </div>
+
+                <div class="contact__oss">
+                    <p>Om du har frågor, kontakta <a href="mailto:flytt@moveit.se">flytt@moveit.se</a></p>
+                </div>
+            </div>
+
+            <ng-template #runSpinner>
+                <mat-spinner></mat-spinner>
+            </ng-template>
+        </mat-grid-tile>
+    </mat-grid-list>
+</mat-card>

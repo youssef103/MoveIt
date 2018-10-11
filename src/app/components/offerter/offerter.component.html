@@ -1,0 +1,30 @@
+<mat-card class="mr-1" *ngFor="let offert of offerter" [routerLink]="['/offert', offert.id]">
+    <mat-grid-list cols="12" rowHeight="3em">
+        <mat-grid-tile [colspan]="12" [rowspan]="2">
+            <div style="width: 100%">
+                <div class="dis__flex">
+                    <h2 class="mat-h2">
+                        {{offert.namn}}
+                    </h2>
+                    <p class="mat-caption">E-posr: {{offert.epost}}</p>
+                </div>
+                <div class="dis__flex">
+                    <span class="mat-caption">
+                        Från: {{ offert.fran }} Till: {{offert.till}}
+                    </span>
+                    <span class="mat-caption">
+                        Antal bilar: {{offert.bilar}}
+                    </span>
+                </div>
+
+                <div class="dis__flex">
+                    <span class="mat-caption">Datum: {{offert.datum | date: 'yyyy/MM/dd'}}</span>
+                    <span class="mat-caption">
+                        Pris: {{ offert.pris | currency: 'SEK': 'Kr '}}
+                    </span>
+                </div>
+
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</mat-card>

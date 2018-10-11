@@ -1,0 +1,102 @@
+<mat-card class="mr-1">
+    <mat-grid-list cols="12" rowHeight="110px">
+        <mat-grid-tile [colspan]="breakpoint1" [rowspan]="breakpoint1 == 8? 5 : 9" (window:resize)="onResize($event)">
+            <form [formGroup]="offertFrm" (ngSubmit)="createoffert()">
+                <div class="mit__container" [ngStyle]="{'grid-template-columns': breakpoint1 == 8 ? '1fr 1fr' : '1fr'}">
+                    <mat-form-field>
+                        <input matInput placeholder="Namn" formControlName="namn">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput placeholder="E-post" formControlName="epost">
+                        <mat-icon matSuffix class="ico-sm">email</mat-icon>
+                        <mat-error *ngIf="epost.invalid" [innerHTML]="getErrorEpostMessage()"></mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput placeholder="Från" formControlName="fran">
+                        <mat-icon matSuffix class="ico-sm">location_on</mat-icon>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput placeholder="Till" formControlName="till">
+                        <mat-icon matSuffix class="ico-sm">location_on</mat-icon>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input matInput [matDatepicker]="picker" placeholder="Välj ett datum" formControlName="datum">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker touchUi #picker></mat-datepicker>
+                    </mat-form-field>
+
+                    <div>
+                        <mat-label class="block__element">Avstånd:</mat-label>
+                        <mat-slider min="0" max="300" step="1" [value]="avstand" thumbLabel color="primary" formControlName="avstand"></mat-slider>
+                        <span matSuffix>{{avstand}} kvm</span>
+                    </div>
+
+                    <div>
+                        <mat-label class="block__element">Bostaden yta:</mat-label>
+                        <mat-slider min="0" max="300" step="1" [value]="bostadenYta" thumbLabel color="primary" formControlName="bostadenYta"></mat-slider>
+                        <span matSuffix>{{bostadenYta}} kvm</span>
+                    </div>
+
+                    <div>
+                        <div>
+                            <mat-slide-toggle [labelPosition]='before' color='primary' [checked]='hasKallare' (change)="chkKallare()">
+                                Vind/Källare:
+                            </mat-slide-toggle>
+                        </div>
+                        <div *ngIf="hasKallare">
+                            <mat-slider min="0" max="300" step="1" [value]="kallare" thumbLabel color="primary" formControlName="kallare"></mat-slider>
+                            <span matSuffix>{{kallare}} kvm</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="title">
+                            Övrigt
+                        </h3>
+
+                        <mat-list>
+                            <mat-list-item>
+                                <mat-checkbox color="primary" formControlName="piano">Pianoflytt</mat-checkbox>
+                            </mat-list-item>
+                            <mat-list-item>
+                                <mat-checkbox color="primary" formControlName="packhjalp">Packhjälp</mat-checkbox>
+                            </mat-list-item>
+                        </mat-list>
+                    </div>
+
+                    <mat-form-field>
+                        <textarea matInput rows="5" placeholder="Meddelande" formControlName="meddelande"></textarea>
+                    </mat-form-field>
+                </div>
+
+                <mat-card-actions>
+                    <button mat-raised-button color="primary" [disabled]="offertFrm.invalid">Submit</button>
+                </mat-card-actions>
+            </form>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="breakpoint2" [rowspan]="3" (window:resize)="onResize($event)">
+            <div>
+                <h2>Uppskata pris</h2>
+
+                <h3 class="mat-h3">
+                    {{pris | currency: 'SEK':' kr '}} inkl moms
+                </h3>
+                <p class="mat-caption">{{pris - (pris * 0.20) | currency: 'SEK':'kr ' }} exkl moms</p>
+
+                <div class="bilar">
+                    <h3 class="mat-h3">Antal bilar: {{antalBilar}}</h3>
+                    <div class="bilar__boarea">
+                        <mat-icon class="bilar--mr-s" *ngFor="let bil of bilar(bostadenYta, 49)">local_shipping</mat-icon>
+                    </div>
+                    <div class="bilar__kallare">
+                        <mat-icon class="bilar--mr-s" *ngFor="let bil of bilar(kallare, 25)">local_shipping</mat-icon>
+                    </div>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</mat-card>
