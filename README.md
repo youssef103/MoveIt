@@ -1,4 +1,10 @@
 # MoveIt
+
+1- You need to install  JSON Server by run this command:   npm install -g json-server
+2- Run this command to run server: npm run json-serve
+3- Run Angular application by: ng serve -o
+
+
 MoveIT är ett flyttfirman som har byggt med nya JavaScript tekniker samt Nodejs, Angular 6, SCSS och Material Design som frontend och json-server som backend.
 
 ## Bakgrund 
